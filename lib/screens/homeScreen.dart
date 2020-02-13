@@ -1,31 +1,29 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:etcheckinapp/module/user.dart';
 import 'package:etcheckinapp/screens/Info.dart';
-import 'package:etcheckinapp/screens/checkPage.dart';
 import 'package:etcheckinapp/screens/qrbarcode.dart';
 import 'package:etcheckinapp/screens/setting.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class App extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
+  static const String routeName = "HomeScreen";
   @override
-  _AppState createState() => _AppState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _AppState extends State<App> {
+class _HomeScreenState extends State<HomeScreen> {
   PageController _pageController = new PageController(initialPage: 1);
   int indexPage = 1;
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _pageController = PageController();
-  // }
-
   GlobalKey _bottomNavigationKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
+    final userModel = Provider.of<UserModel>(context);
+
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("E.T.Light"),
+        title: new Text(userModel.username),
         leading: new Padding(
           padding: const EdgeInsets.all(5.0),
           child: new CircleAvatar(
@@ -53,7 +51,7 @@ class _AppState extends State<App> {
       body: PageView(
           controller: _pageController,
           children: <Widget>[
-            CheckPage(),
+            InfoPage(),
             QrBarCode(),
             SettingPage(),
           ],

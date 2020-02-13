@@ -7,5 +7,4 @@ class UserModel with ChangeNotifier {
   String team;
   String logintoken;
   String role;
-
 }

@@ -2,14 +2,17 @@ import 'package:etcheckinapp/Widget/login/loginButton.dart';
 import 'package:etcheckinapp/Widget/login/imgLogo.dart';
 import 'package:etcheckinapp/Widget/login/passWordField.dart';
 import 'package:etcheckinapp/Widget/login/userNameField.dart';
+import 'package:etcheckinapp/module/user.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class MyHomePage extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
+  static const String routeName = "LoginScreen";
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
             alignment: Alignment.bottomRight,
             widthFactor: 0.5,
             heightFactor: 0.5,
-            child:Material(
+            child: Material(
               color: Colors.cyan,
               borderRadius:
                   BorderRadius.only(bottomRight: Radius.circular(200)),
